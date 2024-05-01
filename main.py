@@ -71,26 +71,6 @@ def complete_order(parameters: dict, session_id: str):
     })
 
 
-'''def complete_order(parameters: dict, session_id: str):
-    if session_id not in inprogress_orders:
-        fulfillment_text = "I am having trouble finding your order. Sorry! Can you please place a new order"
-    else:
-        order = inprogress_orders[session_id]
-        order_id = save_to_db(order)
-
-        if order_id == -1:
-            fulfillment_text = "Sorry, I coudn't process your order due to a backend error." \
-                               "Please place a new order"
-        else:
-            order_total = db_helper.get_total_order_price(order_id)
-            fulfillment_text = f"Awesome. We have placed your order." \
-                               f"Here is your order id # {order_id}." \
-                               f"Your order total is {order_total} which you can pay at the time of delivery!"
-        del inprogress_orders[session_id]
-    return JSONResponse(content={
-        "fulfillmentText": fulfillment_text
-    })'''
-
 
 def save_to_db(order: dict):
     next_order_id = db_helper.get_next_order_id()
@@ -107,36 +87,6 @@ def save_to_db(order: dict):
     return next_order_id
 
 
-'''def remove_from_order(parameters:dict, session_id:str):
-    if session_id not in inprogress_orders:
-        return JSONResponse(content={
-            "fulfillmentText": "I'm having trouble finding your order. Sorry! Can you place a new order."
-        })
-    current_order = inprogress_orders[session_id]
-    food_items = parameters['food-items']
-    removed_items = []
-    no_such_items = []
-    for item in food_items:
-        if item not in current_order:
-            no_such_items.append(item)
-        else:
-            removed_items.append(item)
-            del current_order[item]
-    if len(removed_items) > 0:
-        fulfillment_text = f'Removed {",".join(removed_items)} from your order!'
-
-    if len(no_such_items) > 0:
-        fulfillment_text = f' Your current order does not have {",".join(no_such_items)}'
-
-    if len(current_order.keys()) == 0:
-        fulfillment_text += " Your order is empty!"
-    else:
-        order_str = generic_helper.get_str_from_food_dict(current_order)
-        fulfillment_text += f" Here is what is left in your order: {order_str}"
-
-    return JSONResponse(content={
-        "fulfillmentText": fulfillment_text
-    })'''
 
 
 def remove_from_order(parameters: dict, session_id: str):
