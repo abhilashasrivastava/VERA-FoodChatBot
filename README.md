@@ -1,8 +1,10 @@
 # VERA-FOODCHATBOT
 
-Project Link: [Project Presentation](https://drive.google.com/file/d/10RjmdOtNjY7eqJG_n4YB3x-U1GzTQNBi/view?usp=sharing)
-
 Welcome to VERA-FOODCHATBOT, your go-to solution for effortless food ordering and tracking. Powered by FastAPI and Dialogueflow, VERA offers a seamless and intuitive conversational interface for users to place orders and inquire about existing ones.
+
+## Project Presentation
+
+For a visual representation of the project and its real-world use, please check out our [project presentation](https://drive.google.com/file/d/1O5hXd084AqivdlA4LYwLcGUlHFl5zuS-/view?usp=sharing).
 
 ## Features
 
